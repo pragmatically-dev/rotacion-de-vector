@@ -188,7 +188,7 @@ class VectorR2 {
 
   @override
   String toString() {
-    return "(${x1.ceilToDouble()},${x2.ceilToDouble()})";
+    return "(${x1.toStringAsFixed(2)},${x2.toStringAsFixed(2)})";
   }
 
   static VectorR2 rotar(double alpha, VectorR2 v) {

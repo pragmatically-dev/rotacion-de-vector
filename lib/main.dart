@@ -1,10 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'dart:math';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'dart:html' as html;
 
 class ScreenType {
   static const double desktop = 1054;
@@ -108,20 +106,43 @@ class _DesktopViewState extends State<DesktopView> {
     return Row(
       children: [
         Expanded(
-            flex: 1,
-            child: Column(
-              children: [
-                Center(
-                  child: Text("Mueva el valor de K"),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Slider(
-                    value: k,
-                    onChanged: (value) => {setState(() => k = value)}),
-              ],
-            )),
+          flex: 1,
+          child: Column(
+            children: [
+              Center(
+                child: Text("Mueva el valor de K"),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Slider(
+                  value: k, onChanged: (value) => {setState(() => k = value)}),
+
+                  SizedBox(
+                height: 190,
+              ),
+              SizedBox(
+                width: 220,
+                height: 50,
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(20),
+                   onTap: () {
+                    html.window.open("https://github.com/pragmatically-dev/rotacion-de-vector", "Github");
+                  },
+                  child: Card(
+                    margin: const EdgeInsets.all(0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)
+                    ),
+                    child: Center(
+                      child: Text("Hace click para ver la teoría"),
+                    ),
+                  ),
+                )
+              )
+            ],
+          ),
+        ),
         Expanded(
           flex: 4,
           child: ClipRect(
@@ -266,6 +287,28 @@ class _MobileViewState extends State<MobileView> {
               ),
               Slider(
                   value: k, onChanged: (value) => {setState(() => k = value)}),
+              SizedBox(
+                height: 50,
+              ),
+              SizedBox(
+                  width: 220,
+                  height: 50,
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(20),
+                    onTap: () {
+                      html.window.open(
+                          "https://github.com/pragmatically-dev/rotacion-de-vector",
+                          "Github");
+                    },
+                    child: Card(
+                      margin: const EdgeInsets.all(0),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Center(
+                        child: Text("Hace click para ver la teoría"),
+                      ),
+                    ),
+                  ))
             ],
           ),
         ),
